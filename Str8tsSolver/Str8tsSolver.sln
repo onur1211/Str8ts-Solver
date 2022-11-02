@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Str8tsSolver", "Str8tsSolver.csproj", "{DFB2610E-0FAB-4E74-81C1-B26E31396072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{DA02E105-74D5-4980-9082-D3AA63744312}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFB2610E-0FAB-4E74-81C1-B26E31396072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB2610E-0FAB-4E74-81C1-B26E31396072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB2610E-0FAB-4E74-81C1-B26E31396072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB2610E-0FAB-4E74-81C1-B26E31396072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA02E105-74D5-4980-9082-D3AA63744312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA02E105-74D5-4980-9082-D3AA63744312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA02E105-74D5-4980-9082-D3AA63744312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA02E105-74D5-4980-9082-D3AA63744312}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA23B6AB-1516-4A33-A70B-B2B1DF0D6F2A}
+	EndGlobalSection
+EndGlobal

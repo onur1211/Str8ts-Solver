@@ -1,0 +1,106 @@
+﻿<Window x:Class="Str8tsSolver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:Str8tsSolver.ViewModel"
+        xmlns:view="clr-namespace:Str8tsSolver.View.Converter"
+        xmlns:local="clr-namespace:Str8tsSolver"
+        mc:Ignorable="d"
+        Title="Str8ts Solver" Height="600" Width="600" Background="LightBlue" Icon="str8tsIcon.ico">
+
+    <Window.DataContext>
+        <viewModel:PuzzleVM/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <view:PuzzleConverter x:Key="puzzleConverter"/>
+        <view:NumberConverter x:Key="numberConverter"/>
+    </Window.Resources>
+
+    <DockPanel>
+        
+        <!-- Puzzle Input Visuals -->
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label FontWeight="Medium" FontSize="20">Puzzle input:</Label>
+            <TextBox Text="{Binding PuzzleAsString, Mode=TwoWay}" FontSize="20" Height="Auto" Width="400" DockPanel.Dock="Bottom" Margin="10"/>
+        </StackPanel>
+        
+        <!-- Button Visuals -->
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+            <Button Content="CREATE" FontWeight="Medium" Margin="10" Click="CreateButton_Click" DockPanel.Dock="Bottom" Width="70" Height="40">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                From="LightGray" To="LightGreen" Duration="0:0:1" AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+            </Button>
+
+
+            <Button Name="SolveButton" Content="SOLVE" FontWeight="Medium" Margin="10" Click="SolveButton_Click" DockPanel.Dock="Bottom" Width="70" Height="40">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                From="LightGray" To="LightGreen" Duration="0:0:1" AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                
+            </Button>
+        </StackPanel>
+        
+        <Grid Margin="30">
+
+            <!-- Puzzle Visuals -->
+            <ItemsControl ItemsSource="{Binding Puzzle, Converter={StaticResource puzzleConverter}}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="{Binding Puzzle.Height}" Rows="{Binding Puzzle.Width}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <!-- Number Visuals -->
+            <ItemsControl ItemsSource="{Binding Puzzle, Converter={StaticResource numberConverter}}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="{Binding Puzzle.Height}" Rows="{Binding Puzzle.Width}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock TextAlignment="Center" FontSize="30" Text="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </Grid>
+
+    </DockPanel>
+</Window>
