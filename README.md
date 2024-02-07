@@ -1,4 +1,9 @@
 # Str8ts-Solver
+
+
+![solver_screenshot](https://github.com/onur1211/Str8ts-Solver/assets/107207990/ae321c92-8213-4cd8-8cf1-729851ddb8aa)
+
+
 Str8ts puzzle solver with unit tests (C# WPF .NET Framework) 
 
 This is a solver application for str8ts puzzles.
